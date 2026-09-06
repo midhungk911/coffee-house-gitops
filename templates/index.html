@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee House</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f1e8;
+            color: #3b2418;
+        }
+
+        header {
+            background: #3b2418;
+            color: white;
+            padding: 22px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 24px;
+        }
+
+        .hero {
+            padding: 90px 8%;
+            text-align: center;
+            background: #ead7c0;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin: 0 0 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #b66a3c;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu {
+            padding: 60px 8%;
+            text-align: center;
+        }
+
+        .menu h2 {
+            font-size: 34px;
+            margin-bottom: 35px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background: white;
+            width: 260px;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
+
+        .coffee-icon {
+            font-size: 48px;
+        }
+
+        .card h3 {
+            margin: 15px 0 8px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #b66a3c;
+        }
+
+        footer {
+            background: #3b2418;
+            color: white;
+            text-align: center;
+            padding: 22px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">☕ Coffee House</div>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="#menu">Menu</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Fresh Coffee. Every Morning.</h1>
+    <p>Simple coffee, carefully prepared.</p>
+    <a href="#menu" class="button">Explore Our Menu</a>
+</section>
+
+<section class="menu" id="menu">
+    <h2>Our Favorites</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="coffee-icon">☕</div>
+            <h3>Espresso</h3>
+            <p>Rich and bold classic espresso.</p>
+            <div class="price">$3.50</div>
+        </div>
+
+        <div class="card">
+            <div class="coffee-icon">🥛</div>
+            <h3>Cappuccino</h3>
+            <p>Espresso with smooth steamed milk.</p>
+            <div class="price">$4.50</div>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    Coffee House · Crafted with care
+</footer>
+
+</body>
+</html>
