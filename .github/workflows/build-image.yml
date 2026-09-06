@@ -30,4 +30,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/midhungk911/coffee-house-gitops:latest
+          tags: ghcr.io/midhungk911/coffee-house-gitops:v1
