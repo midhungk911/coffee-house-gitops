@@ -1,16 +1,18 @@
-name: Build and Push Coffee House Image
+name: Build and Deploy Coffee House
 
 on:
   push:
     branches:
       - main
+    paths-ignore:
+      - "k8s/**"
 
 permissions:
-  contents: read
+  contents: write
   packages: write
 
 jobs:
-  build:
+  build-and-update:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,4 +32,32 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: ghcr.io/midhungk911/coffee-house-gitops:v2
+          tags: ghcr.io/midhungk911/coffee-house-gitops:${{ github.sha }}
+
+      - name: Update Kubernetes image
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          file = Path("k8s/deployment.yaml")
+          content = file.read_text()
+
+          old = "image: ghcr.io/midhungk911/coffee-house-gitops:"
+          lines = content.splitlines()
+
+          for i, line in enumerate(lines):
+              if line.strip().startswith(old):
+                  lines[i] = f"          {old}${{ github.sha }}"
+                  break
+
+          file.write_text("\n".join(lines) + "\n")
+          PY
+
+      - name: Commit and push manifest update
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add k8s/deployment.yaml
+          git commit -m "Update Coffee House image to ${{ github.sha }}" || exit 0
+          git push
