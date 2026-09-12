@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: coffee-house
-          image: ghcr.io/midhungk911/coffee-house-gitops:6220ede4dabc73a7aeefcde63cb48eb33bca2bfc
+          image: ghcr.io/midhungk911/coffee-house-gitops:b69c61b4dfdf2aa35998c90d16db847e7eca3419
           ports:
             - containerPort: 5002
           resources:
